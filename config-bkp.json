@@ -1,0 +1,22 @@
+{
+    "AppName": "jenkins-ui-backend",
+    "namespace": "ohmap-jenkins-dev",
+    "tag": "1.0.0",
+    "imageRepo": "docker.io/ankur/demo",
+    "replicaCount": 2,
+    "port": 8000,
+    "env": {
+      "JENKINS_URL": "https://ohhdevops.cernerasp.com/ohmap-jenkins"
+    },
+    "envFromSecrets": [
+      { "name": "JENKINS_USER", "secretName": "jenkins-ui-backend", "key": "jenkins_user" },
+      { "name": "JENKINS_TOKEN", "secretName": "jenkins-ui-backend", "key": "jenkins_token" }
+    ],
+    "volumeMounts": [
+      { "name": "jenkins-ca-cert", "mountPath": "/certs" }
+    ],
+    "volumes": [
+      { "name": "jenkins-ca-cert", "secret": { "secretName": "jenkins-ca-cert" } }
+    ]
+  }
+  

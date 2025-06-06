@@ -1,0 +1,28 @@
+{
+    "PRIVATE_REPO":"ankur1825",
+    "tag":"1.0.0",
+    "AppName":"Apportionment",
+    "namespace":"horizon-relevance-dev",
+    "replicaCount": 1,
+    "port": 80,
+    "ingress": {
+      "enabled": true,
+      "className": "nginx",
+      "annotations": {
+        "nginx.ingress.kubernetes.io/rewrite-target": "/$2",
+        "nginx.ingress.kubernetes.io/use-regex": "true"
+      },
+      "hosts": [
+        {
+          "host": "horizonrelevance.com",
+          "paths": [
+            {
+              "path": "/test(/|$)(.*)",
+              "pathType": "ImplementationSpecific"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  
