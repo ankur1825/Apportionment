@@ -1,7 +1,7 @@
 {
     "AppName": "jenkins-ui-backend",
     "namespace": "ohmap-jenkins-dev",
-    "tag": "1.0.0",
+    "tag": "1.0.1",
     "imageRepo": "docker.io/ankur/demo",
     "replicaCount": 2,
     "port": 8000,
